@@ -1,37 +1,86 @@
 package ru.alexlen.hackfitness.fragment;
 
-import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
-import java.util.ArrayList;
-
-import ru.alexlen.hackfitness.BaseActivity;
-import ru.alexlen.hackfitness.GymSection;
 import ru.alexlen.hackfitness.R;
 import ru.alexlen.hackfitness.SafeView;
-import ru.alexlen.hackfitness.adapter.GymAddressListAdapter;
-import ru.alexlen.hackfitness.adapter.GymSectionListAdapter;
-
-import static ru.alexlen.hackfitness.adapter.GymSectionListAdapter.MenuSection;
 
 /**
  * Created by almazko on 25/10/14.
  */
 public class ClubScheduleFragment extends AbstractFragment {
 
+    public static class Event {
+        public String name;
+        public int bgColor;
+        public boolean isGoing;
+        public int hours;
 
-    private GymAddressListAdapter mAdapter;
+        public Event(String name, int bgColor, boolean isGoing, int hours) {
+            this.name = name;
+            this.bgColor = bgColor;
+            this.isGoing = isGoing;
+            this.hours = hours;
+        }
+    }
+
+
+    class DetailOnClickListener implements View.OnClickListener {
+
+        private LayoutInflater mInflater;
+        private Event mEvent;
+
+        public DetailOnClickListener(LayoutInflater inflater, Event event) {
+            mInflater = inflater;
+            mEvent = event;
+        }
+
+        @Override
+        public void onClick(View view) {
+
+            final View popupView = mInflater.inflate(R.layout.view_tooltip_schedule_event, null);
+            SafeView sv = new SafeView(popupView);
+
+
+            sv.setText(R.id.tooltip_title, mEvent.name);
+            sv.get(R.id.tooltip_title).setBackgroundColor(mEvent.bgColor);
+
+            final PopupWindow popupWindow = new PopupWindow(popupView,
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+
+
+            popupWindow.setOutsideTouchable(true);
+
+            popupWindow.setBackgroundDrawable(new BitmapDrawable(getActivity().getResources(),
+                    Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888)));
+
+//            popupWindow.showAsDropDown(view, 0, 0);
+            popupWindow.showAtLocation(view, Gravity.CENTER, 0, 40);
+
+
+            popupView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    popupWindow.dismiss();
+                }
+            });
+
+        }
+    }
+
+
     private LayoutInflater mInflater;
     private GridLayout mGrid;
-    private int mCellSize;
 
     public static ClubScheduleFragment newInstance(Bundle data) {
 
@@ -49,61 +98,56 @@ public class ClubScheduleFragment extends AbstractFragment {
 
 
         mGrid = (GridLayout) rootView.findViewById(R.id.grid_schedule);
-        mCellSize = (int)dipToPixels(getBaseActivity(), 43);
 
-        addCell(1, 1, "Yoga", color(R.color.event_yoga), false, 1);
-        addCell(2, 2, "Yoga", color(R.color.event_yoga), false, 2);
-        addCell(3, 2, "Yoga", color(R.color.event_yoga), false, 2);
-        addCell(5, 1, "Yoga", color(R.color.event_yoga), false, 1);
-        addCell(6, 3, "Yoga", color(R.color.event_yoga), false, 1);
-        addCell(7, 2, "Yoga", color(R.color.event_yoga), false, 2);
+        addCell(1, 1, new Event("Yoga", color(R.color.event_yoga), false, 1));
+        addCell(2, 2, new Event("Yoga", color(R.color.event_yoga), false, 2));
+        addCell(3, 2, new Event("Yoga", color(R.color.event_yoga), false, 2));
+        addCell(5, 1, new Event("Yoga", color(R.color.event_yoga), false, 1));
+        addCell(6, 3, new Event("Yoga", color(R.color.event_yoga), false, 1));
+        addCell(7, 2, new Event("Yoga", color(R.color.event_yoga), false, 2));
 
-        addCell(1, 4, "Body Stretch", color(R.color.event_body_stretch), false, 1);
-        addCell(2, 4, "Body Stretch", color(R.color.event_body_stretch), false, 1);
-        addCell(3, 4, "Body Stretch", color(R.color.event_body_stretch), false, 1);
-        addCell(4, 4, "Body Stretch", color(R.color.event_body_stretch), false, 1);
-        addCell(5, 4, "Body Stretch", color(R.color.event_body_stretch), false, 1);
+        addCell(1, 4, new Event("Body Stretch", color(R.color.event_body_stretch), false, 1));
+        addCell(2, 4, new Event("Body Stretch", color(R.color.event_body_stretch), false, 1));
+        addCell(3, 4, new Event("Body Stretch", color(R.color.event_body_stretch), false, 1));
+        addCell(4, 4, new Event("Body Stretch", color(R.color.event_body_stretch), false, 1));
+        addCell(5, 4, new Event("Body Stretch", color(R.color.event_body_stretch), false, 1));
 
-        addCell(5, 7, "Power Class", color(R.color.event_power), true, 1);
-        addCell(6, 9, "Power Class", color(R.color.event_power), true, 1);
-        addCell(7, 9, "Power Class", color(R.color.event_power), true, 1);
+        addCell(5, 7, new Event("Power Class", color(R.color.event_power), true, 1));
+        addCell(6, 9, new Event("Power Class", color(R.color.event_power), true, 1));
+        addCell(7, 9, new Event("Power Class", color(R.color.event_power), true, 1));
 
-        addCell(3, 14, "Tai-Bo", color(R.color.event_taibo), true, 2);
-        addCell(4, 14, "Tai-Bo", color(R.color.event_taibo), true, 2);
-        addCell(5, 14, "Tai-Bo", color(R.color.event_taibo), true, 2);
-        addCell(6, 14, "Tai-Bo", color(R.color.event_taibo), true, 1);
-        addCell(7, 14, "Tai-Bo", color(R.color.event_taibo), true, 2);
+        addCell(3, 14, new Event("Tai-Bo", color(R.color.event_taibo), true, 2));
+        addCell(4, 14, new Event("Tai-Bo", color(R.color.event_taibo), true, 2));
+        addCell(5, 14, new Event("Tai-Bo", color(R.color.event_taibo), true, 2));
+        addCell(6, 14, new Event("Tai-Bo", color(R.color.event_taibo), true, 1));
+        addCell(7, 14, new Event("Tai-Bo", color(R.color.event_taibo), true, 2));
 
-        addCell(1, 14, "Pilates", color(R.color.event_pilates), true, 2);
-        addCell(2, 17, "Pilates", color(R.color.event_pilates), true, 2);
-        addCell(3, 17, "Pilates", color(R.color.event_pilates), true, 2);
-        addCell(6, 15, "Pilates", color(R.color.event_pilates), true, 2);
-        addCell(7, 16, "Pilates", color(R.color.event_pilates), true, 2);
+        addCell(1, 14, new Event("Pilates", color(R.color.event_pilates), true, 2));
+        addCell(2, 17, new Event("Pilates", color(R.color.event_pilates), true, 2));
+        addCell(3, 17, new Event("Pilates", color(R.color.event_pilates), true, 2));
+        addCell(6, 15, new Event("Pilates", color(R.color.event_pilates), true, 2));
+        addCell(7, 16, new Event("Pilates", color(R.color.event_pilates), true, 2));
 
         return rootView;
 
     }
 
 
-    private void addCell(int colId, int rowId, String name, int bgColor, boolean isGoing, int hours) {
+    private void addCell(int colId, int rowId, Event event) {
         View cell = mInflater.inflate(R.layout.cell_schedule, mGrid, false);
+        cell.setOnClickListener(new DetailOnClickListener(mInflater, event));
+
         ViewGroup.LayoutParams lpCell = cell.getLayoutParams();
         SafeView sv = new SafeView(cell);
 
-        sv.get(R.id.cell_content).setBackgroundColor(bgColor);
-        sv.setText(R.id.cell_txt_event_type, name);
+        sv.get(R.id.cell_content).setBackgroundColor(event.bgColor);
+        sv.setText(R.id.cell_txt_event_type, event.name);
 
-        GridLayout.Spec row = GridLayout.spec(rowId, hours);
+        GridLayout.Spec row = GridLayout.spec(rowId, event.hours);
         GridLayout.Spec colspan = GridLayout.spec(colId, 1);
         GridLayout.LayoutParams gridLayoutParam = new GridLayout.LayoutParams(row, colspan);
-        gridLayoutParam.height = lpCell.height * hours;
+        gridLayoutParam.height = lpCell.height * event.hours;
         gridLayoutParam.width = lpCell.width;
         mGrid.addView(cell, gridLayoutParam);
     }
-
-    public static float dipToPixels(Context context, float dipValue) {
-        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue, metrics);
-    }
-
 }

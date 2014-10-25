@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Experience:"
-        android:id="@+id/txt_trainer_exp_label"
+        android:id="@+id/txt_trainer_name_label"
         android:textColor="#ffffffff"
         android:fontFamily="sans-serif"
         android:layout_marginRight="5dp"
@@ -24,7 +24,7 @@
         android:id="@+id/txt_trainer_exp"
         android:textColor="#ffffffff"
         android:fontFamily="sans-serif-light"
-        android:layout_toRightOf="@+id/txt_trainer_exp_label" />
+        android:layout_toRightOf="@+id/txt_trainer_name_label" />
 
     <TextView
         android:layout_width="90dp"
@@ -33,7 +33,7 @@
         android:id="@+id/txt_trainer_cert_label"
         android:textColor="#ffffffff"
         android:fontFamily="sans-serif"
-        android:layout_below="@+id/txt_trainer_exp_label"
+        android:layout_below="@+id/txt_trainer_name_label"
         android:layout_marginBottom="2dp" />
 
 

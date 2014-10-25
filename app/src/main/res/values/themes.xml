@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- the theme applied to the application or activity -->
+    <style name="HF" parent="android:Theme.Material.Light.DarkActionBar">
+
+        <item name="colorPrimary">#ffa3208a</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/primary</item>
+        <item name="android:icon">@android:color/transparent</item>
+
+    </style>
+</resources>

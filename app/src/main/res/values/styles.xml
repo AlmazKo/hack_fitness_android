@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="HF.Text" parent="@android:style/TextAppearance.Material">
+        <item name="android:textColor">@color/txt_default</item>
+        <item name="android:textSize">@dimen/txt_main_size</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="HF.Text.Title" parent="@style/HF.Text">
+        <item name="android:textColor">@color/txt_default</item>
+        <item name="android:textSize">@dimen/txt_title_size</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+
+</resources>

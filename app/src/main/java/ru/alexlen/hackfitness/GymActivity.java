@@ -1,12 +1,15 @@
 package ru.alexlen.hackfitness;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import ru.alexlen.hackfitness.api.GymAddress;
+import ru.alexlen.hackfitness.fragment.AbstractFragment;
 import ru.alexlen.hackfitness.fragment.GymAddressListFragment;
 import ru.alexlen.hackfitness.fragment.GymInfoListFragment;
+import ru.alexlen.hackfitness.fragment.TrainerListFragment;
 
 
 public class GymActivity extends BaseActivity {
@@ -29,19 +32,25 @@ public class GymActivity extends BaseActivity {
         }
     }
 
-
     public void selectAddress(GymAddress gymAddress) {
-        FragmentManager fm = getSupportFragmentManager();
 
-        fm.beginTransaction()
-                .replace(R.id.list_container, GymInfoListFragment.newInstance(null))
-                .addToBackStack("notss")
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                .commit();
-
+        addFragmentToBackStack(R.id.list_container, GymInfoListFragment.newInstance(null));
     }
 
     public void selectSection(GymSection section) {
+        switch (section) {
+
+            case NEWS:
+                break;
+            case SCHEDULE:
+                break;
+            case INFO:
+                break;
+            case TRAINERS:
+                addFragmentToBackStack(R.id.list_container, TrainerListFragment.newInstance(null));
+
+                break;
+        }
 
     }
 }

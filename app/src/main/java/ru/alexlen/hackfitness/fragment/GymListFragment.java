@@ -48,7 +48,7 @@ public class GymListFragment extends AbstractFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle state) {
 
         final View rootView = inflater.inflate(R.layout.fg_list_loaded, container, false);
-
+        rootView.findViewById(R.id.list_loader).setVisibility(View.VISIBLE);
 
         final BaseActivity activity = (BaseActivity) getActivity();
 

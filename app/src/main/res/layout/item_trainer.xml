@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/item_height">
+    android:layout_height="wrap_content"
+    android:paddingBottom="2dp"
+    android:paddingTop="2dp">
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_centerVertical="true"
-        android:background="#ffa3a3a3">
+    <ru.alexlen.hackfitness.widget.ExpandableLayout
+        android:id="@+id/expand_activities"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:header="@layout/exp_head_trainer"
+        app:header_text="Агапов"
+        app:expanded="false"
+        app:content="@layout/exp_content_trainer"
+        android:layout_centerVertical="true" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ico_expand"
-            android:layout_gravity="center"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentTop="false"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/abc_spinner_mtrl_am_alpha"
-            android:layout_marginRight="10dp" />
-    </RelativeLayout>
 
 
     <ImageView
@@ -30,21 +26,12 @@
 
         android:scaleType="fitCenter"
         android:id="@+id/img_trainer"
-        android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
         android:src="@drawable/trainer_stub"
         android:layout_marginLeft="20dp"
         android:background="@android:drawable/editbox_dropdown_light_frame"
-        android:adjustViewBounds="true" />
+        android:adjustViewBounds="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="3dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Агапов Иван"
-        android:id="@+id/txt_trainer_name"
-        android:layout_toRightOf="@+id/img_trainer"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
-        android:textColor="#ffffffff"
-        android:fontFamily="sans-serif-light" />
 </RelativeLayout>

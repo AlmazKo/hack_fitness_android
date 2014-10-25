@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_centerVertical="true"
+    android:background="@color/primary">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Агапов Иван"
+        android:textSize="18dp"
+        android:id="@+id/txt_trainer_name"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="100dp"
+        android:textColor="#ffffffff"
+        android:fontFamily="sans-serif" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ico_expand"
+        android:layout_gravity="center"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/abc_spinner_mtrl_am_alpha"
+        android:layout_marginRight="10dp" />
+
+
+</RelativeLayout>

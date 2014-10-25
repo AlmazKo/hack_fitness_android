@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/primary"
+    android:paddingLeft="100dp"
+    android:paddingTop="-10dp"
+    android:paddingBottom="12dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Experience:"
+        android:id="@+id/txt_trainer_exp_label"
+        android:textColor="#ffffffff"
+        android:fontFamily="sans-serif"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="2dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="9 years"
+        android:id="@+id/txt_trainer_exp"
+        android:textColor="#ffffffff"
+        android:fontFamily="sans-serif-light"
+        android:layout_toRightOf="@+id/txt_trainer_exp_label" />
+
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:text="Sertificates:"
+        android:id="@+id/txt_trainer_cert_label"
+        android:textColor="#ffffffff"
+        android:fontFamily="sans-serif"
+        android:layout_below="@+id/txt_trainer_exp_label"
+        android:layout_marginBottom="2dp" />
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/lt_trainer_certs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_trainer_cert_label"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="— Group Fitness Instructor Certifacate"
+            android:textSize="12sp"
+            android:textColor="#ffffffff"
+            android:fontFamily="sans-serif-light" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="— Yoga Instructor Certifacate"
+            android:textSize="12sp"
+            android:textColor="#ffffffff"
+            android:fontFamily="sans-serif-light" />
+
+    </LinearLayout>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:text="Enroll"
+        android:id="@+id/btn_enroll"
+        android:layout_below="@+id/lt_trainer_certs"
+        android:layout_marginRight="20dp"
+        android:fontFamily="sans-serif"
+        />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:text="Close"
+        android:id="@+id/btn_close"
+        android:layout_below="@+id/lt_trainer_certs"
+        android:layout_toRightOf="@+id/btn_enroll"
+        android:fontFamily="sans-serif"/>
+
+</RelativeLayout>

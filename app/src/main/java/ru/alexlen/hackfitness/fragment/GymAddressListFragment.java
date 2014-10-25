@@ -24,21 +24,21 @@ import ru.alexlen.hackfitness.BaseActivity;
 import ru.alexlen.hackfitness.Config;
 import ru.alexlen.hackfitness.R;
 import ru.alexlen.hackfitness.VolleySingleton;
-import ru.alexlen.hackfitness.adapter.GymListAdapter;
-import ru.alexlen.hackfitness.api.Gym;
+import ru.alexlen.hackfitness.adapter.GymAddressListAdapter;
+import ru.alexlen.hackfitness.api.GymAddress;
 import ru.alexlen.hackfitness.widget.DividerItemDecoration;
 
 /**
  * Created by almazko on 25/10/14.
  */
-public class GymListFragment extends AbstractFragment {
+public class GymAddressListFragment extends AbstractFragment {
 
 
-    private GymListAdapter mAdapter;
+    private GymAddressListAdapter mAdapter;
 
-    public static GymListFragment newInstance(Bundle data) {
+    public static GymAddressListFragment newInstance(Bundle data) {
 
-        GymListFragment fg = new GymListFragment();
+        GymAddressListFragment fg = new GymAddressListFragment();
         fg.setArguments(data);
 
         return fg;
@@ -61,7 +61,7 @@ public class GymListFragment extends AbstractFragment {
                 new DividerItemDecoration(getResources().getDrawable(R.drawable.divider_list));
         listFunds.addItemDecoration(itemDecoration);
 
-        final String url = Config.SITE + "gyms";
+        final String url = Config.SITE + "gym_addresses/1";
 
 
         StringRequest request = new StringRequest(Request.Method.GET, url,
@@ -73,11 +73,12 @@ public class GymListFragment extends AbstractFragment {
                         ObjectMapper mapper = new ObjectMapper();
 
                         try {
-                             ArrayList<Gym> gyms = mapper.readValue(response, new TypeReference<ArrayList<Gym>>() {
+                             ArrayList<GymAddress> gyms = mapper.readValue(response,
+                                     new TypeReference<ArrayList<GymAddress>>() {
                             });
 
 
-                            mAdapter = new GymListAdapter(getBaseActivity(), gyms);
+                            mAdapter = new GymAddressListAdapter(getBaseActivity(), gyms);
 
                             listFunds.addOnItemTouchListener(mAdapter);
                             listFunds.setAdapter(mAdapter);

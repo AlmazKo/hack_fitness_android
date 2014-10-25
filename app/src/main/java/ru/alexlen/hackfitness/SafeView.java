@@ -5,7 +5,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-
+/**
+ * @author Almazko
+ */
 public class SafeView {
     public static final String TAG = "SafeView";
 

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @author Alexander Suslov
+ * @author Almazko
  */
 public class Utils {
 

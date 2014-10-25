@@ -16,18 +16,12 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         setTitle("Список клубов");
-
-
         FragmentManager fm = getSupportFragmentManager();
-
 
         GymListFragment fg;
 
         fg = (GymListFragment) fm.findFragmentById(R.id.list_container);
-
-
         if (fg == null) {
             fm.beginTransaction()
                     .replace(R.id.list_container, GymListFragment.newInstance(null))

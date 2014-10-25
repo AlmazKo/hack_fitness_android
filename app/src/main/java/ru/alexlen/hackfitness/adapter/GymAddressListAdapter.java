@@ -1,6 +1,7 @@
 package ru.alexlen.hackfitness.adapter;
 
 import android.graphics.Color;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,31 +18,31 @@ import java.util.HashMap;
 
 import ru.alexlen.hackfitness.BaseActivity;
 import ru.alexlen.hackfitness.Config;
+import ru.alexlen.hackfitness.GymActivity;
 import ru.alexlen.hackfitness.R;
 import ru.alexlen.hackfitness.SafeView;
 import ru.alexlen.hackfitness.VolleySingleton;
 import ru.alexlen.hackfitness.api.Gym;
+import ru.alexlen.hackfitness.api.GymAddress;
 
 /**
  * Created by almazko on 25/10/14.
  */
-public class GymListAdapter extends AbstractRecyclerView<GymListAdapter.ViewHolder>
+public class GymAddressListAdapter extends AbstractRecyclerView<GymAddressListAdapter.ViewHolder>
         implements AbstractRecyclerView.OnSelectClickListener {
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        HashMap<TextView, Integer> savedColors = new HashMap<>();
-
-        TextView name;
-        ImageView logo;
+        TextView subway;
+        TextView address;
 
         public ViewHolder(ViewGroup view) {
             super(view);
             SafeView ss = new SafeView(view);
 
-            name = ss.get(TextView.class, R.id.txt_gym_name);
-            logo = ss.get(ImageView.class, R.id.img_gym_logo);
+            address = ss.get(TextView.class, R.id.txt_gym_address);
+            subway = ss.get(TextView.class, R.id.txt_gym_address_subway);
 
             view.setTag(this);
         }
@@ -49,15 +50,12 @@ public class GymListAdapter extends AbstractRecyclerView<GymListAdapter.ViewHold
     }
 
 
-    private final ArrayList<Gym> mGyms;
-    private final ImageLoader mImageLoader;
+    private final ArrayList<GymAddress> mAddresses;
 
-    public GymListAdapter(BaseActivity activity, ArrayList<Gym> gyms) {
+    public GymAddressListAdapter(BaseActivity activity, ArrayList<GymAddress> gyms) {
         super(activity);
 
-        mGyms = gyms;
-
-        mImageLoader = VolleySingleton.getInstance(activity).getImageLoader();
+        mAddresses = gyms;
 
         setOnSelectListener(activity, this);
     }
@@ -65,7 +63,7 @@ public class GymListAdapter extends AbstractRecyclerView<GymListAdapter.ViewHold
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        ViewGroup item = (ViewGroup) mActivity.getLayoutInflater().inflate(R.layout.item_gym, viewGroup, false);
+        ViewGroup item = (ViewGroup) mActivity.getLayoutInflater().inflate(R.layout.item_address, viewGroup, false);
 
 
         return new ViewHolder(item);
@@ -74,29 +72,23 @@ public class GymListAdapter extends AbstractRecyclerView<GymListAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        Gym gym = mGyms.get(position);
+        GymAddress gym = mAddresses.get(position);
 
-        holder.name.setText(gym.name);
-
-
-        String url = Config.SITE + gym.logo;
-
-        mImageLoader.get(url, ImageLoader.getImageListener(holder.logo,
-                android.R.drawable.sym_def_app_icon, android.R.drawable.sym_def_app_icon));
-
-
-        holder.itemView.setBackgroundColor(Color.TRANSPARENT);
+        holder.address.setText(gym.address);
+        holder.subway.setText(gym.subway);
     }
 
     @Override
     public int getItemCount() {
-        return mGyms.size();
+        return mAddresses.size();
     }
+
 
     @Override
     public void onSelect(@NotNull View item, int position) {
         item.setBackgroundColor(Color.GRAY);
-        mActivity.gymAddresses(mGyms.get(position));
+
+        ((GymActivity) mActivity).selectAddress(mAddresses.get(position));
     }
 
     @Override

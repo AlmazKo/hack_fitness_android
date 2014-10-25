@@ -2,8 +2,19 @@
 <resources>
 
     <item name="txt_default" type="color">#FF333333</item>
+    <item name="white" type="color">#FFffffff</item>
     <item name="divider_gray" type="color">#ffa3a3a3</item>
     <item name="primary" type="color">#ffa3379b</item>
     <item name="primaryDark" type="color">#ff691559</item>
+
+
+
+
+
+    <item name="event_yoga" type="color">#ffe0922f</item>
+    <item name="event_power" type="color">#ffe04232</item>
+    <item name="event_taibo" type="color">#ff8bb951</item>
+    <item name="event_pilates" type="color">#ff2146ab</item>
+    <item name="event_body_stretch" type="color">#ff8c8a1a</item>
 
 </resources>

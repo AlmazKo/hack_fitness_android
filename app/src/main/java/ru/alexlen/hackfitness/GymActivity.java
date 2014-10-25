@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 
 import ru.alexlen.hackfitness.api.GymAddress;
 import ru.alexlen.hackfitness.fragment.AbstractFragment;
+import ru.alexlen.hackfitness.fragment.ClubScheduleFragment;
 import ru.alexlen.hackfitness.fragment.GymAddressListFragment;
 import ru.alexlen.hackfitness.fragment.GymInfoListFragment;
 import ru.alexlen.hackfitness.fragment.TrainerListFragment;
@@ -43,6 +44,7 @@ public class GymActivity extends BaseActivity {
             case NEWS:
                 break;
             case SCHEDULE:
+                addFragmentToBackStack(R.id.list_container, ClubScheduleFragment.newInstance(null));
                 break;
             case INFO:
                 break;

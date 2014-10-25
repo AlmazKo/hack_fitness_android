@@ -13,5 +13,34 @@
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
+    <style name="HF.Cell.Schedule.Time" parent="@style/HF.Text">
+        <item name="android:textColor">@color/txt_default</item>
+        <item name="android:textSize">9sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:gravity">right</item>
+    </style>
+
+ <style name="HF.Cell.Schedule.Event" parent="@style/HF.Text">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="HF.Cell.Schedule.WTime" parent="@style/HF">
+        <item name="android:layout_width">43dp</item>
+        <item name="android:layout_height">43dp</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_margin">1px</item>
+
+
+    </style>
+
 
 </resources>

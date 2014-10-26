@@ -3,9 +3,11 @@
 
 
     <!-- the theme applied to the application or activity -->
-    <style name="HF" parent="android:Theme.Material.Light.DarkActionBar">
+    <!--<style name="HF" parent="android:Theme.Material.Light.DarkActionBar">-->
+    <!--<style name="HF" parent="@android:style/Theme.Material.Light.DarkActionBar">-->
+    <style name="HF" parent="Theme.AppCompat.Light.DarkActionBar">
 
-        <item name="colorPrimary">#ffa3208a</item>
+        <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primaryDark</item>
         <item name="colorAccent">@color/primary</item>
         <item name="android:icon">@android:color/transparent</item>

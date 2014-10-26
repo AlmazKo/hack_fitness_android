@@ -86,7 +86,7 @@ public class GymSectionListAdapter extends AbstractRecyclerView<GymSectionListAd
 
     @Override
     public void onSelect(@NotNull View item, int position) {
-        item.setBackgroundColor(Color.GRAY);
+        item.setBackgroundColor(getColor(R.color.primary));
         ((GymActivity) mActivity).selectSection(mSections.get(position).section);
 
     }

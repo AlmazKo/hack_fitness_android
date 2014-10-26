@@ -14,6 +14,7 @@ import ru.alexlen.hackfitness.GymSection;
 import ru.alexlen.hackfitness.R;
 import ru.alexlen.hackfitness.adapter.GymAddressListAdapter;
 import ru.alexlen.hackfitness.adapter.GymSectionListAdapter;
+import ru.alexlen.hackfitness.widget.DividerItemDecoration;
 
 import static ru.alexlen.hackfitness.adapter.GymSectionListAdapter.MenuSection;
 
@@ -52,6 +53,11 @@ public class GymInfoListFragment extends AbstractFragment {
         GymSectionListAdapter productsAdapter = new GymSectionListAdapter(activity, sections);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(activity);
         listSections.setLayoutManager(mLayoutManager);
+
+
+        DividerItemDecoration itemDecoration =
+                new DividerItemDecoration(getResources().getDrawable(R.drawable.divider_list));
+        listSections.addItemDecoration(itemDecoration);
 
 
         listSections.addOnItemTouchListener(productsAdapter);

@@ -52,14 +52,14 @@ public class GymListFragment extends AbstractFragment {
 
         final BaseActivity activity = (BaseActivity) getActivity();
 
-        final RecyclerView listFunds = (RecyclerView) rootView.findViewById(R.id.list);
-        listFunds.setLayoutManager(new LinearLayoutManager(activity));
-        listFunds.setItemAnimator(new DefaultItemAnimator());
+        final RecyclerView list = (RecyclerView) rootView.findViewById(R.id.list);
+        list.setLayoutManager(new LinearLayoutManager(activity));
+        list.setItemAnimator(new DefaultItemAnimator());
 
 
         DividerItemDecoration itemDecoration =
                 new DividerItemDecoration(getResources().getDrawable(R.drawable.divider_list));
-        listFunds.addItemDecoration(itemDecoration);
+        list.addItemDecoration(itemDecoration);
 
         final String url = Config.SITE + "gyms";
 
@@ -79,8 +79,8 @@ public class GymListFragment extends AbstractFragment {
 
                             mAdapter = new GymListAdapter(getBaseActivity(), gyms);
 
-                            listFunds.addOnItemTouchListener(mAdapter);
-                            listFunds.setAdapter(mAdapter);
+                            list.addOnItemTouchListener(mAdapter);
+                            list.setAdapter(mAdapter);
 
                             mAdapter.notifyDataSetChanged();
 

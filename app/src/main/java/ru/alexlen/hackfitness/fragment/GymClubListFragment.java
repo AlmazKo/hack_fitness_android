@@ -23,47 +23,60 @@ import java.util.ArrayList;
 import ru.alexlen.hackfitness.BaseActivity;
 import ru.alexlen.hackfitness.Config;
 import ru.alexlen.hackfitness.R;
+import ru.alexlen.hackfitness.SafeView;
 import ru.alexlen.hackfitness.VolleySingleton;
 import ru.alexlen.hackfitness.adapter.GymAddressListAdapter;
+import ru.alexlen.hackfitness.api.Gym;
 import ru.alexlen.hackfitness.api.GymAddress;
 import ru.alexlen.hackfitness.widget.DividerItemDecoration;
 
 /**
  * Created by almazko on 25/10/14.
  */
-public class GymAddressListFragment extends AbstractFragment {
+public class GymClubListFragment extends AbstractFragment {
 
 
     private GymAddressListAdapter mAdapter;
+    private Gym mGym;
 
-    public static GymAddressListFragment newInstance(Bundle data) {
+    public static GymClubListFragment newInstance(Bundle data) {
 
-        GymAddressListFragment fg = new GymAddressListFragment();
+        GymClubListFragment fg = new GymClubListFragment();
         fg.setArguments(data);
 
         return fg;
     }
 
     @Override
+    public void onCreate(Bundle savedState) {
+        super.onCreate(savedState);
+
+        if (getArguments() != null) {
+            mGym = (Gym) getArguments().getSerializable("gym");
+        }
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle state) {
 
         final View rootView = inflater.inflate(R.layout.fg_list_loaded, container, false);
+        SafeView sv = new SafeView(rootView);
 
-        rootView.findViewById(R.id.list_loader).setVisibility(View.VISIBLE);
+        sv.setVisibility(R.id.list_loader,View.VISIBLE);
+
 
         final BaseActivity activity = (BaseActivity) getActivity();
 
-        final RecyclerView listFunds = (RecyclerView) rootView.findViewById(R.id.list);
-        listFunds.setLayoutManager(new LinearLayoutManager(activity));
-        listFunds.setItemAnimator(new DefaultItemAnimator());
+        final RecyclerView listClubs = (RecyclerView) rootView.findViewById(R.id.list);
+        listClubs.setLayoutManager(new LinearLayoutManager(activity));
+        listClubs.setItemAnimator(new DefaultItemAnimator());
 
 
         DividerItemDecoration itemDecoration =
                 new DividerItemDecoration(getResources().getDrawable(R.drawable.divider_list));
-        listFunds.addItemDecoration(itemDecoration);
+        listClubs.addItemDecoration(itemDecoration);
 
         final String url = Config.SITE + "gym_addresses/1";
-
 
         StringRequest request = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -74,15 +87,15 @@ public class GymAddressListFragment extends AbstractFragment {
                         ObjectMapper mapper = new ObjectMapper();
 
                         try {
-                             ArrayList<GymAddress> gyms = mapper.readValue(response,
-                                     new TypeReference<ArrayList<GymAddress>>() {
-                            });
+                            ArrayList<GymAddress> gyms = mapper.readValue(response,
+                                    new TypeReference<ArrayList<GymAddress>>() {
+                                    });
 
 
                             mAdapter = new GymAddressListAdapter(getBaseActivity(), gyms);
 
-                            listFunds.addOnItemTouchListener(mAdapter);
-                            listFunds.setAdapter(mAdapter);
+                            listClubs.addOnItemTouchListener(mAdapter);
+                            listClubs.setAdapter(mAdapter);
 
                             mAdapter.notifyDataSetChanged();
 

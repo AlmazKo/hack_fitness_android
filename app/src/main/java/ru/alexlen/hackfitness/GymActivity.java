@@ -1,14 +1,16 @@
 package ru.alexlen.hackfitness;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.android.volley.toolbox.ImageLoader;
+
+import ru.alexlen.hackfitness.api.Gym;
 import ru.alexlen.hackfitness.api.GymAddress;
-import ru.alexlen.hackfitness.fragment.AbstractFragment;
 import ru.alexlen.hackfitness.fragment.ClubScheduleFragment;
-import ru.alexlen.hackfitness.fragment.GymAddressListFragment;
+import ru.alexlen.hackfitness.fragment.GymClubListFragment;
 import ru.alexlen.hackfitness.fragment.GymInfoListFragment;
 import ru.alexlen.hackfitness.fragment.TrainerListFragment;
 
@@ -18,17 +20,31 @@ public class GymActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_address);
+        setContentView(R.layout.activity_gym);
 
         setTitle("Clubs");
+
+
+        ImageLoader imageLoader = VolleySingleton.getInstance(this).getImageLoader();
+
+        Bundle extras = getIntent().getExtras();
+        Gym gym = (Gym) extras.getSerializable("gym");
+
+
+        ((TextView) findViewById(R.id.txt_gym_name)).setText(gym.name);
+        ImageView gymLogo = (ImageView) findViewById(R.id.img_gym_logo);
+
+        String url = Config.SITE + gym.logo;
+        imageLoader.get(url, ImageLoader.getImageListener(gymLogo, 0, 0));
+
         FragmentManager fm = getSupportFragmentManager();
 
-        GymAddressListFragment fg;
+        GymClubListFragment fg;
 
-        fg = (GymAddressListFragment) fm.findFragmentById(R.id.list_container);
+        fg = (GymClubListFragment) fm.findFragmentById(R.id.list_container);
         if (fg == null) {
             fm.beginTransaction()
-                    .replace(R.id.list_container, GymAddressListFragment.newInstance(null))
+                    .replace(R.id.list_container, GymClubListFragment.newInstance(extras))
                     .commit();
         }
     }

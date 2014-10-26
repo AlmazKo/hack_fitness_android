@@ -12,8 +12,10 @@
         android:layout_height="@dimen/item_height"
 
 
-        android:padding="10dp"
-        android:background="#ffa3a3a3">
+        android:background="@color/primary"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp">
 
         <TextView
             style="@style/HF.Text.Title"
@@ -21,18 +23,28 @@
             android:id="@+id/txt_gym_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_alignParentStart="true"
             android:textSize="28sp"
             android:textColor="#ffffffff"
             android:fontFamily="sans-serif"/>
+
+        <TextView
+            style="@style/HF.Text"
+            android:text="м. Алексеевская"
+            android:id="@+id/txt_club_subway"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffffff"
+            android:fontFamily="sans-serif-light"
+            android:layout_below="@+id/txt_gym_name" />
 
         <ImageView
             android:layout_width="@dimen/item_logo_size"
             android:layout_height="@dimen/item_logo_size"
             android:id="@+id/img_gym_logo"
             android:src="@drawable/gym_logo_stub"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
     </RelativeLayout>
 
     <FrameLayout

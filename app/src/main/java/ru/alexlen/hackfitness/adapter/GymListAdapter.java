@@ -31,8 +31,6 @@ public class GymListAdapter extends AbstractRecyclerView<GymListAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        HashMap<TextView, Integer> savedColors = new HashMap<>();
-
         TextView name;
         ImageView logo;
 
@@ -95,8 +93,8 @@ public class GymListAdapter extends AbstractRecyclerView<GymListAdapter.ViewHold
 
     @Override
     public void onSelect(@NotNull View item, int position) {
-        item.setBackgroundColor(Color.GRAY);
-        mActivity.gymAddresses(mGyms.get(position));
+        item.setBackgroundColor(getColor(R.color.primary));
+        mActivity.showClubs(mGyms.get(position));
     }
 
     @Override

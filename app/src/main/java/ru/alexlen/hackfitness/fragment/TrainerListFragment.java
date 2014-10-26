@@ -53,9 +53,9 @@ public class TrainerListFragment extends AbstractFragment {
         rootView.findViewById(R.id.list_loader).setVisibility(View.VISIBLE);
         final BaseActivity activity = (BaseActivity) getActivity();
 
-        final RecyclerView listFunds = (RecyclerView) rootView.findViewById(R.id.list);
-        listFunds.setLayoutManager(new LinearLayoutManager(activity));
-        listFunds.setItemAnimator(new DefaultItemAnimator());
+        final RecyclerView list = (RecyclerView) rootView.findViewById(R.id.list);
+        list.setLayoutManager(new LinearLayoutManager(activity));
+        list.setItemAnimator(new DefaultItemAnimator());
 
 
         final String url = Config.SITE + "gym/1/1/trainers";
@@ -77,8 +77,8 @@ public class TrainerListFragment extends AbstractFragment {
 
                             mAdapter = new TrainerListAdapter(activity, trainers);
 
-                            listFunds.addOnItemTouchListener(mAdapter);
-                            listFunds.setAdapter(mAdapter);
+                            list.addOnItemTouchListener(mAdapter);
+                            list.setAdapter(mAdapter);
 
                             mAdapter.notifyDataSetChanged();
 

@@ -14,7 +14,7 @@ import ru.alexlen.hackfitness.fragment.AbstractFragment;
  */
 abstract public class BaseActivity extends FragmentActivity {
 
-    public void gymAddresses(Gym gym) {
+    public void showClubs(Gym gym) {
 
         final Intent intent = new Intent();
 

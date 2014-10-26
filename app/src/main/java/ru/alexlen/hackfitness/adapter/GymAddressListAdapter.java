@@ -86,7 +86,7 @@ public class GymAddressListAdapter extends AbstractRecyclerView<GymAddressListAd
 
     @Override
     public void onSelect(@NotNull View item, int position) {
-        item.setBackgroundColor(Color.GRAY);
+        item.setBackgroundColor(getColor(R.color.primary));
 
         ((GymActivity) mActivity).selectAddress(mAddresses.get(position));
     }

@@ -78,7 +78,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="90dp"
         android:layout_height="45dp"
-        android:text="I'm going"
+        android:text="Go"
         android:id="@+id/btn_close"
         android:layout_below="@+id/txt_trainer_name_label"
         android:fontFamily="sans-serif"

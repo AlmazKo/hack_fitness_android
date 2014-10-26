@@ -8,6 +8,7 @@
     <item name="primary" type="color">#ff52a1b2</item>
     <!--<item name="primaryDark" type="color">#ff691559</item>-->
     <item name="primaryDark" type="color">#ff448593</item>
+    <item name="button" type="color">#ffa7269f</item>
 
 
 

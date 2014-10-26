@@ -100,11 +100,11 @@ public class ClubScheduleFragment extends AbstractFragment {
         mGrid = (GridLayout) rootView.findViewById(R.id.grid_schedule);
 
         addCell(1, 1, new Event("Yoga", color(R.color.event_yoga), false, 1));
-        addCell(2, 2, new Event("Yoga", color(R.color.event_yoga), false, 2));
-        addCell(3, 2, new Event("Yoga", color(R.color.event_yoga), false, 2));
+        addCell(2, 2, new Event("Yoga", color(R.color.event_yoga), false, 1));
+        addCell(3, 2, new Event("Yoga", color(R.color.event_yoga), false, 1));
         addCell(5, 1, new Event("Yoga", color(R.color.event_yoga), false, 1));
         addCell(6, 3, new Event("Yoga", color(R.color.event_yoga), false, 1));
-        addCell(7, 2, new Event("Yoga", color(R.color.event_yoga), false, 2));
+        addCell(7, 2, new Event("Yoga", color(R.color.event_yoga), false, 1));
 
         addCell(1, 4, new Event("Body Stretch", color(R.color.event_body_stretch), false, 1));
         addCell(2, 4, new Event("Body Stretch", color(R.color.event_body_stretch), false, 1));
@@ -116,17 +116,17 @@ public class ClubScheduleFragment extends AbstractFragment {
         addCell(6, 9, new Event("Power Class", color(R.color.event_power), true, 1));
         addCell(7, 9, new Event("Power Class", color(R.color.event_power), true, 1));
 
-        addCell(3, 14, new Event("Tai-Bo", color(R.color.event_taibo), true, 2));
-        addCell(4, 14, new Event("Tai-Bo", color(R.color.event_taibo), true, 2));
-        addCell(5, 14, new Event("Tai-Bo", color(R.color.event_taibo), true, 2));
+        addCell(3, 14, new Event("Tai-Bo", color(R.color.event_taibo), true, 1));
+        addCell(4, 14, new Event("Tai-Bo", color(R.color.event_taibo), true, 1));
+        addCell(5, 14, new Event("Tai-Bo", color(R.color.event_taibo), true, 1));
         addCell(6, 14, new Event("Tai-Bo", color(R.color.event_taibo), true, 1));
-        addCell(7, 14, new Event("Tai-Bo", color(R.color.event_taibo), true, 2));
+        addCell(7, 14, new Event("Tai-Bo", color(R.color.event_taibo), true, 1));
 
-        addCell(1, 14, new Event("Pilates", color(R.color.event_pilates), true, 2));
-        addCell(2, 17, new Event("Pilates", color(R.color.event_pilates), true, 2));
-        addCell(3, 17, new Event("Pilates", color(R.color.event_pilates), true, 2));
-        addCell(6, 15, new Event("Pilates", color(R.color.event_pilates), true, 2));
-        addCell(7, 16, new Event("Pilates", color(R.color.event_pilates), true, 2));
+        addCell(1, 14, new Event("Pilates", color(R.color.event_pilates), true, 1));
+        addCell(2, 17, new Event("Pilates", color(R.color.event_pilates), true, 1));
+        addCell(3, 17, new Event("Pilates", color(R.color.event_pilates), true, 1));
+        addCell(6, 15, new Event("Pilates", color(R.color.event_pilates), true, 1));
+        addCell(7, 16, new Event("Pilates", color(R.color.event_pilates), true, 1));
 
         return rootView;
 

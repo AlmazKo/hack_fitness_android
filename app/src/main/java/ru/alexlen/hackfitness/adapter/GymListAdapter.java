@@ -73,16 +73,10 @@ public class GymListAdapter extends AbstractRecyclerView<GymListAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         Gym gym = mGyms.get(position);
-
         holder.name.setText(gym.name);
 
-
         String url = Config.SITE + gym.logo;
-
-        mImageLoader.get(url, ImageLoader.getImageListener(holder.logo,
-                android.R.drawable.sym_def_app_icon, android.R.drawable.sym_def_app_icon));
-
-
+        mImageLoader.get(url, ImageLoader.getImageListener(holder.logo, 0, 0));
         holder.itemView.setBackgroundColor(Color.TRANSPARENT);
     }
 

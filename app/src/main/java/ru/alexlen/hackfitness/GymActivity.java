@@ -1,8 +1,12 @@
 package ru.alexlen.hackfitness;
 
+import android.animation.ValueAnimator;
 import android.graphics.Outline;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,6 +26,30 @@ public class GymActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gym);
+        findViewById(R.id.fab).setVisibility(View.INVISIBLE);
+
+
+        final ImageButton button = (ImageButton) findViewById(R.id.fab);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ValueAnimator animHide = ValueAnimator.ofFloat(1, 0).setDuration(500);
+                final ViewGroup.LayoutParams lp = button.getLayoutParams();
+                final int size = lp.width;
+                animHide.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                        final float alpha = (Float) valueAnimator.getAnimatedValue();
+                        button.setAlpha(alpha);
+                        lp.width = (int) (size * alpha);
+                        lp.height = (int) (size * alpha);
+                        button.requestLayout();
+                    }
+                });
+
+                animHide.start();
+            }
+        });
 
         setTitle("Clubs");
 
@@ -40,6 +68,11 @@ public class GymActivity extends BaseActivity {
 
         FragmentManager fm = getSupportFragmentManager();
 
+        if (extras.getBoolean("notify")) {
+            selectAddress(null);
+            return;
+        }
+
         GymClubListFragment fg;
 
         fg = (GymClubListFragment) fm.findFragmentById(R.id.list_container);
@@ -49,20 +82,18 @@ public class GymActivity extends BaseActivity {
                     .commit();
         }
 
-        //Outline
-        int size = 100; //getResources().getDimensionPixelSize(R.dimen.fab_size);
-        Outline outline = new Outline();
-        outline.setOval(0, 0, size, size);
-        //((ImageButton)findViewById(R.id.fab)).setOutlineProvider(outline);
-
     }
 
     public void selectAddress(GymAddress gymAddress) {
 
         addFragmentToBackStack(R.id.list_container, GymInfoListFragment.newInstance(null));
+        findViewById(R.id.fab).setVisibility(View.VISIBLE);
     }
 
     public void selectSection(GymSection section) {
+
+        findViewById(R.id.fab).setVisibility(View.INVISIBLE);
+
         switch (section) {
 
             case NEWS:

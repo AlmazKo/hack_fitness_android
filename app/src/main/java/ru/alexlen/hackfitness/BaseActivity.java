@@ -17,11 +17,9 @@ abstract public class BaseActivity extends FragmentActivity {
     public void showClubs(Gym gym) {
 
         final Intent intent = new Intent();
-
-
         intent.putExtra("gym", gym);
-
         intent.setClass(this, GymActivity.class);
+
         this.startActivity(intent);
     }
 

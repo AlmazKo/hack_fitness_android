@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:background="#ffbebebe">
+
+
+        <ImageView
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+
+            android:scaleType="fitCenter"
+            android:id="@+id/img_trainer"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/trainer_stub"
+            android:layout_marginLeft="20dp"
+            android:background="@android:drawable/editbox_dropdown_light_frame"
+            android:adjustViewBounds="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="3dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Агапов Иван"
+            android:textSize="18dp"
+            android:id="@+id/txt_trainer_name"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="100dp"
+            android:textColor="#ffffffff"
+            android:fontFamily="sans-serif" />
+
+
+    </RelativeLayout>
+
+    <GridLayout
+        android:id="@+id/grid_schedule_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="8"
+        android:rowCount="1">
+
+
+        <RelativeLayout
+            android:layout_row="0"
+            android:layout_column="0"
+
+            style="@style/HF.Cell.Schedule.WTime">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                style="@style/HF.Cell.Schedule.Time" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            style="@style/HF.Cell.Schedule.WTime"
+            android:layout_row="0"
+            android:layout_column="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sun"
+                style="@style/HF.Cell.Schedule.Time" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            style="@style/HF.Cell.Schedule.WTime"
+            android:layout_row="0"
+            android:layout_column="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mon"
+                style="@style/HF.Cell.Schedule.Time" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            style="@style/HF.Cell.Schedule.WTime"
+            android:layout_row="0"
+            android:layout_column="3">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tue"
+                style="@style/HF.Cell.Schedule.Time" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            style="@style/HF.Cell.Schedule.WTime"
+            android:layout_row="0"
+            android:layout_column="4">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Wed"
+                style="@style/HF.Cell.Schedule.Time" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/HF.Cell.Schedule.WTime"
+            android:layout_row="0"
+            android:layout_column="5">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thu"
+                style="@style/HF.Cell.Schedule.Time" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/HF.Cell.Schedule.WTime"
+            android:layout_row="0"
+            android:layout_column="6">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fri"
+                style="@style/HF.Cell.Schedule.Time" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/HF.Cell.Schedule.WTime"
+            android:layout_row="0"
+            android:layout_column="7">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sat"
+                style="@style/HF.Cell.Schedule.Time" />
+        </RelativeLayout>
+
+
+    </GridLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <GridLayout
+            android:id="@+id/grid_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="8"
+            android:rowCount="20">
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="1"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="6:00 am"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="2"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="7:00 am"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="3"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="8:00 am"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="4"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="9:00 am"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="5"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="10:00 am"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="6"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="11:00 am"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="7"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12:00 am"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="8"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1:00 pm"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="9"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2:00 pm"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="10"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3:00 pm"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="11"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4:00 pm"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="12"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="5:00 pm"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="13"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="6:00 pm"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="14"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="7:00 pm"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="15"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="8:00 pm"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="16"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="9:00 pm"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="17"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="11:00 pm"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/HF.Cell.Schedule.WTime"
+                android:layout_row="18"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12:00 pm"
+                    style="@style/HF.Cell.Schedule.Time" />
+            </RelativeLayout>
+
+
+        </GridLayout>
+    </ScrollView>
+</LinearLayout>

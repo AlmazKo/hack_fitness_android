@@ -18,6 +18,7 @@ import ru.alexlen.hackfitness.fragment.ClubScheduleFragment;
 import ru.alexlen.hackfitness.fragment.GymClubListFragment;
 import ru.alexlen.hackfitness.fragment.GymInfoListFragment;
 import ru.alexlen.hackfitness.fragment.TrainerListFragment;
+import ru.alexlen.hackfitness.fragment.TrainerScheduleFragment;
 
 
 public class GymActivity extends BaseActivity {
@@ -100,6 +101,10 @@ public class GymActivity extends BaseActivity {
                 break;
             case SCHEDULE:
                 addFragmentToBackStack(R.id.list_container, ClubScheduleFragment.newInstance(null));
+                break;
+
+            case SCHEDULE_TRAINER:
+                addFragmentToBackStack(R.id.list_container, TrainerScheduleFragment.newInstance(null));
                 break;
             case INFO:
                 break;

@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 
 import ru.alexlen.hackfitness.BaseActivity;
 import ru.alexlen.hackfitness.Config;
+import ru.alexlen.hackfitness.GymActivity;
+import ru.alexlen.hackfitness.GymSection;
 import ru.alexlen.hackfitness.R;
 import ru.alexlen.hackfitness.SafeView;
 import ru.alexlen.hackfitness.VolleySingleton;
@@ -33,6 +36,7 @@ public class TrainerListAdapter extends AbstractRecyclerView<TrainerListAdapter.
 
         TextView name;
         ImageView photo;
+        ImageButton goButton;
 
         public ViewHolder(ViewGroup view) {
             super(view);
@@ -40,6 +44,7 @@ public class TrainerListAdapter extends AbstractRecyclerView<TrainerListAdapter.
 
             name = ss.get(TextView.class, R.id.txt_trainer_name);
             photo = ss.get(ImageView.class, R.id.img_trainer);
+//            goButton = ss.get(ImageButton.class, R.id.btn_go);
 
             view.setTag(this);
         }
@@ -75,15 +80,19 @@ public class TrainerListAdapter extends AbstractRecyclerView<TrainerListAdapter.
         Trainer trainer = mTrainers.get(position);
 
         holder.name.setText(trainer.name);
-
-
         String url = Config.SITE + trainer.photo;
 
         mImageLoader.get(url, ImageLoader.getImageListener(holder.photo,
-                android.R.drawable.sym_def_app_icon, android.R.drawable.sym_def_app_icon));
-
+                android.R.drawable.screen_background_light_transparent, android.R.drawable.screen_background_light_transparent));
 
         holder.itemView.setBackgroundColor(Color.TRANSPARENT);
+
+        holder.itemView.findViewById(R.id.btn_go).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((GymActivity) mActivity).selectSection(GymSection.SCHEDULE_TRAINER);
+            }
+        });
     }
 
     @Override

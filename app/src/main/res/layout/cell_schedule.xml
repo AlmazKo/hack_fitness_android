@@ -16,7 +16,7 @@
             android:id="@+id/cell_txt_event_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Yoga"
+            android:text=""
             android:maxLines="2"
             style="@style/HF.Cell.Schedule.Event"
             android:layout_alignParentLeft="true"

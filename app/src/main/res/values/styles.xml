@@ -13,6 +13,17 @@
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
+    <style name="HF.Toolbar.Text" parent="@style/HF.Text">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:gravity">right</item>
+    </style>
+
+
     <style name="HF.Cell.Schedule.Time" parent="@style/HF.Text">
         <item name="android:textColor">@color/txt_default</item>
         <item name="android:textSize">9sp</item>

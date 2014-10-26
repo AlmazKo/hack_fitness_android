@@ -12,5 +12,29 @@
         <item name="colorAccent">@color/primary</item>
         <item name="android:icon">@android:color/transparent</item>
 
+        <!--<item name="actionBarStyle">@style/HF.ActionBar</item>-->
+    </style>
+
+
+    <style name="HF.ActionBar" parent="HF">
+        <item name="android:titleTextStyle">@style/HF.ActionBar.TitleTextStyle</item>
+        <item name="android:subtitleTextStyle">@style/HF.ActionBar.SubTitleTextStyle</item>
+
+        <item name="colorControlNormal">?android:attr/textColorPrimary</item>
+
+
+    </style>
+
+
+    <style name="HF.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title.Inverse">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/txt_title_size</item>
+        <!--<item name="android:background">@color/white</item>-->
+    </style>
+
+    <style name="HF.ActionBar.SubTitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Subtitle.Inverse">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>

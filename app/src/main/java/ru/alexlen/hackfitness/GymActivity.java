@@ -1,5 +1,6 @@
 package ru.alexlen.hackfitness;
 
+import android.graphics.Outline;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.widget.ImageView;
@@ -47,6 +48,13 @@ public class GymActivity extends BaseActivity {
                     .replace(R.id.list_container, GymClubListFragment.newInstance(extras))
                     .commit();
         }
+
+        //Outline
+        int size = 100; //getResources().getDimensionPixelSize(R.dimen.fab_size);
+        Outline outline = new Outline();
+        outline.setOval(0, 0, size, size);
+        //((ImageButton)findViewById(R.id.fab)).setOutlineProvider(outline);
+
     }
 
     public void selectAddress(GymAddress gymAddress) {

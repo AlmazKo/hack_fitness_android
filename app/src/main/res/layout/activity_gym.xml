@@ -15,7 +15,8 @@
         android:background="@color/primary"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:paddingTop="10dp">
+        android:paddingTop="10dp"
+        android:elevation="2dp">
 
         <TextView
             style="@style/HF.Text.Title"
@@ -52,5 +53,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/gym_title" />
+
+
+
+
+    <ImageButton
+        android:id="@+id/fab"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="@dimen/fab_size"
+        android:layout_height="@dimen/fab_size"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/ripple"
+        android:stateListAnimator="@anim/circular"
+        android:src="@drawable/ic_done_white_18dp"
+        android:elevation="4dp" />
 
 </RelativeLayout>
